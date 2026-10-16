@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>الكرة الأرضية التفاعلية | Three.js</title>
+<link rel="stylesheet" href="style.css" />
+
+<!-- Three.js عبر ES Modules + importmap -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>جارٍ تحميل الكرة الأرضية…</p>
+  </div>
+
+  <!-- حاوية المشهد -->
+  <div id="globe-container"></div>
+
+  <!-- Tooltip -->
+  <div id="tooltip" class="hidden"></div>
+
+  <!-- لوحة البيانات -->
+  <aside id="info-panel" class="hidden">
+    <button id="close-panel" aria-label="إغلاق">×</button>
+    <div class="panel-header">
+      <div class="flag" id="country-flag">🌍</div>
+      <h2 id="country-name">—</h2>
+      <span id="country-iso" class="iso">—</span>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-item"><label>المساحة</label><span id="v-area">—</span></div>
+      <div class="info-item"><label>السكان</label><span id="v-pop">—</span></div>
+      <div class="info-item"><label>المنطقة (UN)</label><span id="v-region">—</span></div>
+      <div class="info-item"><label>المنطقة الفرعية</label><span id="v-subregion">—</span></div>
+      <div class="info-item"><label>خط العرض</label><span id="v-lat">—</span></div>
+      <div class="info-item"><label>خط الطول</label><span id="v-lon">—</span></div>
+      <div class="info-item"><label>نوع الحدود</label><span id="v-borders">—</span></div>
+    </div>
+
+    <div class="panel-footer">
+      <small>بيانات: Natural Earth — تصنيف الأمم المتحدة</small>
+    </div>
+  </aside>
+
+  <!-- شريط الحالة -->
+  <div id="status">انقر على أي دولة لعرض بياناتها</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
